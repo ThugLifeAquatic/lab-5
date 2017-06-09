@@ -66,15 +66,24 @@ Write a function called sumArray() that takes in an array of numbers as its sing
 IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To do addition, use your sum() function that you've already created. You're going to have to be resourceful to figure out how to do this.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
-// TODO: Write your code here
+// Done: Write your code here
 var testArray = [2, 3, 4]; //eslint-disable-line
-
 function sumArray(testArray) { //eslint-disable-line
+  var arrString = '' + testArray[0] + '';
+  var sumAll = 0;
+  for (var i = 0; i < testArray.length; i++) {
+    sumAll = sum(sumAll, testArray[i])[0];
+    if (i > 0) {
+      arrString = arrString + ',' + testArray[i] + '';
+    }
+  }
+  var message = arrString + ' was passed in as an array of numbers, and ' + sumAll + ' is their sum.';
+  return [sumAll, message];
 
 }
 
-// TODO: Here is the test for sumArray(); uncomment it to run it
-// testSumArray(testArray);
+// Done: Here is the test for sumArray(); uncomment it to run it
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
