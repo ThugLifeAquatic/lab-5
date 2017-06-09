@@ -47,12 +47,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // DONE: Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sumActual = sum(a,b)[0];
-  console.log(sumActual);
-  sumActual = sum(sumActual,c)[0];
-  console.log(sumActual);
-  var product = multiply(a,b)[0];
-  product = multiply(product, c)[0];
+  var sumActual = sum(a, sum(b, c)[0])[0];
+  var product = multiply(a, multiply(b, c)[0])[0];
   var messageSum = a + ' and ' + b + ' and ' + c + ' sum to ' + sumActual + '.';
   var messageProduct = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
   return [sumActual, product, messageSum, messageProduct];
@@ -73,15 +69,11 @@ Test this function by hand in the console to get it working, and when you think 
 // Done: Write your code here
 var testArray = [2, 3, 4]; //eslint-disable-line
 function sumArray(testArray) { //eslint-disable-line
-  var arrString = '' + testArray[0] + '';
   var sumAll = 0;
   for (var i = 0; i < testArray.length; i++) {
     sumAll = sum(sumAll, testArray[i])[0];
-    if (i > 0) {
-      arrString = arrString + ',' + testArray[i] + '';
-    }
   }
-  var message = arrString + ' was passed in as an array of numbers, and ' + sumAll + ' is their sum.';
+  var message = testArray + ' was passed in as an array of numbers, and ' + sumAll + ' is their sum.';
   return [sumAll, message];
 
 }
@@ -101,20 +93,16 @@ Test this function by hand in the console to get it working, and when you think 
 //DONE
 // Write your code here
 function multiplyArray(testArray) { //eslint-disable-line
-  var arrString = '' + testArray[0] + '';
   var prodAll = 1;
   for (var i = 0; i < testArray.length; i++) {
     prodAll = multiply(prodAll, testArray[i])[0];
-    if (i > 0) {
-      arrString = arrString + ',' + testArray[i] + '';
-    }
   }
-  var message = 'The numbers ' + arrString + ' have a product of ' + prodAll + '.';
+  var message = 'The numbers ' + testArray + ' have a product of ' + prodAll + '.';
   return [prodAll, message];
 }
 
 //DONE
 // Here is the test for multiplyArray(); uncomment it to run it
-testMultiplyArray(2,3,4);
+testMultiplyArray(2, 3, 4);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
